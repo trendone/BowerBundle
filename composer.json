@@ -7,9 +7,7 @@
 			"email" : "enrico.thies@gmail.com"
 		}
 	],
-	"keywords" : [
-		"bower components install symfony standard"
-	],
+	"keywords" : ["bower","assets","symfony","bundle"],
 	"homepage" : "https://github.com/toaotc/BowerBundle",
 	"license" : [
 		"MIT"
