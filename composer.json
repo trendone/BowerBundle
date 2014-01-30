@@ -1,0 +1,27 @@
+{
+	"name" : "toa/bower-bundle",
+	"description" : "Bower Bundle for Symfony2",
+	"type" : "symfony-bundle",
+	"authors" : [{
+			"name" : "Enrico Thies",
+			"email" : "enrico.thies@gmail.com"
+		}
+	],
+	"keywords" : [
+		"bower components install symfony standard"
+	],
+	"homepage" : "https://github.com/toaotc/BowerBundle",
+	"license" : [
+		"MIT"
+	],
+	"require" : {
+		"symfony/framework-bundle" : "~2.3"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"Toa\\Bundle\\BowerBundle" : ""
+		}
+	},
+	"target-dir" : "Toa/Bundle/BowerBundle",
+	"minimum-stability" : "dev"
+}
