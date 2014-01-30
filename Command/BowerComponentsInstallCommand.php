@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Process\ExecutableFinder;
 use Symfony\Component\Process\Process;
 
 /**
@@ -46,6 +47,13 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $finder = new ExecutableFinder;
+
+        $bin = $finder->find('bower');
+        if (!$bin) {
+            throw new \RuntimeException('The Bower executable could not be found.');
+        }
+
         foreach ($this->getContainer()->get('kernel')->getBundles() as $bundle) {
             if (is_dir($originDir = $bundle->getPath() . '/Resources/public')) {
                 $file = $originDir . '/bower.json';
@@ -53,7 +61,7 @@ EOT
                 if (file_exists($file)) {
                     $output->writeln(sprintf('Installing bower components for <comment>%s</comment>', $bundle->getNamespace()));
 
-                    $process = new Process('bower install', $originDir);
+                    $process = new Process($bin . ' install', $originDir);
                     $process->run(
                         function ($type, $buffer) use ($output) {
                             if ($output->getVerbosity() > $output::VERBOSITY_NORMAL) {
