@@ -13,7 +13,8 @@
 		"MIT"
 	],
 	"require" : {
-		"symfony/framework-bundle" : "~2.3"
+		"symfony/framework-bundle" : "~2.3",
+		"symfony/process" : "*"
 	},
 	"autoload" : {
 		"psr-0" : {
