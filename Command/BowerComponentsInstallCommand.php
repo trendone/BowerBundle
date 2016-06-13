@@ -62,6 +62,7 @@ EOT
                     $output->writeln(sprintf('Installing bower components for <comment>%s</comment>', $bundle->getNamespace()));
 
                     $process = new Process($bin . ' install', $originDir);
+                    $process->setTimeout(3600);
                     $process->run(
                         function ($type, $buffer) use ($output) {
                             if ($output->getVerbosity() > $output::VERBOSITY_NORMAL) {
