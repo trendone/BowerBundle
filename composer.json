@@ -1,5 +1,5 @@
 {
-	"name" : "toa/bower-bundle",
+	"name" : "trendone/bower-bundle",
 	"description" : "Bower Bundle for Symfony2",
 	"type" : "symfony-bundle",
 	"authors" : [{
